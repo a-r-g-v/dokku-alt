@@ -37,6 +37,9 @@ WORKDIR /srv/dokku-alt
 RUN sed -i 's/linux-image-extra-virtual, //g' deb/dokku-alt/DEBIAN/control
 RUN make install
 
+# I hate IPv6
+RUN rm /etc/nginx/sites-enabled/default
+
 EXPOSE 22 80 443
 
 # Start all services
